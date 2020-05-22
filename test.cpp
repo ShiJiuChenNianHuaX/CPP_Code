@@ -1,6 +1,21 @@
-#include<iostream>
+#include <iostream>
+#include <cstring>
 using namespace std;
-int main(){
-int arr[5]={1,2,3,4,5};
-cout << arr << endl;
+char * getname(void);
+
+char *getname()
+{
+    char temp[80];
+    cout<<"Enter last name: ";
+    cin >> temp;
+    char * pn = new char[strlen(temp) + 1];
+    strcpy(pn,temp);
+    return pn;
+}
+int main()
+{
+    char * name;
+    name = getname();
+    cout << name << "at" << (int *)name << "\n";
+    delete []name;
 }
